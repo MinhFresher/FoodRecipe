@@ -5,7 +5,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 export async function analyzeFridgeImage(base64Image: string): Promise<string[]> {
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-3-flash-preview",
     contents: [
       {
         parts: [
@@ -33,7 +33,7 @@ export async function generateRecipes(ingredients: string[], restriction: Dietar
   Include difficulty, prep time, calories, full ingredient list (mark which ones are likely missing from the provided list), and step-by-step instructions.`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-3-flash-preview",
     contents: prompt,
     config: {
       responseMimeType: "application/json",
