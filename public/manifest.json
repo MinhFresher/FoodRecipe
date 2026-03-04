@@ -1,0 +1,24 @@
+{
+  "name": "Culinary AI: Smart Fridge Assistant",
+  "short_name": "Culinary AI",
+  "description": "Snap a photo of your fridge to get personalized recipe suggestions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFCFB",
+  "theme_color": "#10b981",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/culinary-ai-192/192/192",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://picsum.photos/seed/culinary-ai-512/512/512",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
