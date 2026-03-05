@@ -26,16 +26,23 @@ export default function App() {
     // Detect if running in an iframe
     setIsInIframe(window.self !== window.top);
 
-    window.addEventListener('beforeinstallprompt', (e) => {
+    const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
       setDeferredPrompt(e);
       setIsInstallable(true);
-    });
-
-    window.addEventListener('appinstalled', () => {
+    };
+    const handleAppInstalled = () => {
       setIsInstallable(false);
       setDeferredPrompt(null);
-    });
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener('appinstalled', handleAppInstalled);
+
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', handleAppInstalled);
+    };
   }, []);
 
   const handleLaunchFullApp = () => {
